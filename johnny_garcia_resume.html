@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Garcia - Vibe-Coding Developer</title>
+    <meta name="description" content="AI-Enhanced Developer specializing in vibe-coding methodologies with Claude AI. Built 4+ production applications with proven user acquisition and monetization.">
+    <meta name="author" content="Johnny Garcia">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fafafa;
+            color: #18181b;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        header {
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #18181b;
+        }
+        
+        .header-subtitle {
+            font-size: 0.875rem;
+            color: #71717a;
+            cursor: pointer;
+        }
+        
+        .header-subtitle:hover {
+            color: #18181b;
+        }
+        
+        .intro {
+            margin-bottom: 3rem;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+        
+        .intro p {
+            margin-bottom: 1rem;
+        }
+        
+        .intro strong {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .intro em {
+            font-style: italic;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            cursor: pointer;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        h3 {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #18181b;
+        }
+        
+        .work-item, .project-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e4e4e7;
+        }
+        
+        .work-item:last-child, .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .work-left, .project-left {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .work-name, .project-name {
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.125rem 0.625rem;
+            border-radius: 9999px;
+            border: 1px solid #e4e4e7;
+            font-size: 0.75rem;
+            color: #71717a;
+            background: transparent;
+        }
+        
+        .work-link, .project-link {
+            font-size: 0.75rem;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #e4e4e7;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            color: #71717a;
+            background: #fafafa;
+            transition: all 0.2s;
+        }
+        
+        .work-link:hover, .project-link:hover {
+            background: #f4f4f5;
+            color: #18181b;
+        }
+        
+        .project-item {
+            position: relative;
+            padding: 1rem 0;
+        }
+        
+        .project-item:hover::before {
+            content: '';
+            position: absolute;
+            inset: -0.625rem;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 0.375rem;
+            z-index: -1;
+        }
+        
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .project-title-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .project-description {
+            font-size: 0.9375rem;
+            color: #71717a;
+        }
+        
+        .project-arrow {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.15s;
+        }
+        
+        .project-item:hover .project-arrow {
+            transform: rotate(45deg);
+        }
+        
+        .skills-section {
+            margin-bottom: 2rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .skills-category h4 {
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #18181b;
+        }
+        
+        .skills-list {
+            font-size: 0.875rem;
+            color: #71717a;
+            line-height: 1.5;
+        }
+        
+        .connect {
+            font-size: 0.9375rem;
+        }
+        
+        .connect a {
+            color: #18181b;
+            text-decoration: none;
+            border-bottom: 1px dashed #52525b;
+            padding-bottom: 1.4px;
+        }
+        
+        .connect a:hover {
+            border-bottom-style: solid;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #09090b;
+                color: #fafafa;
+            }
+            
+            h1, .work-name, .project-name, .skills-category h4 {
+                color: #fafafa;
+            }
+            
+            .header-subtitle, .intro, .project-description, .badge, .work-link, .project-link, .skills-list {
+                color: #a1a1aa;
+            }
+            
+            .work-item, .project-item {
+                border-bottom-color: #27272a;
+            }
+            
+            .badge, .work-link, .project-link {
+                border-color: #27272a;
+                background: #18181b;
+            }
+            
+            .work-link:hover, .project-link:hover {
+                background: #27272a;
+                color: #fafafa;
+            }
+            
+            .connect a {
+                color: #fafafa;
+                border-bottom-color: #52525b;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Johnny Garcia</h1>
+            <div class="header-subtitle">Vibe-Coding Developer</div>
+        </header>
+        
+        <section class="intro">
+            <p>I'm a <strong>Vibe-Coding Developer</strong> who builds full-stack applications using AI-assisted development with Claude. Specialized in rapid prototyping, database architecture, and creating revenue-generating platforms.</p>
+            <p>Built 4+ production apps as solo developer using <em>vibe-coding methodologies</em> with proven user acquisition (146+ users, 4.67-star ratings) and monetization success.</p>
+            <p>Philosophy: <em>"It is not the strongest... but the one most adaptable to change"</em> - Charles Darwin</p>
+        </section>
+
+        <section class="skills-section">
+            <h3>Technical Skills</h3>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <h4>AI-Enhanced Development</h4>
+                    <div class="skills-list">Claude (Cursor, VS Code), Prompt Engineering, Vibe-Coding methodologies</div>
+                </div>
+                <div class="skills-category">
+                    <h4>Prompt Engineering</h4>
+                    <div class="skills-list">System prompts, Chain-of-thought, Few-shot examples, Context optimization</div>
+                </div>
+                <div class="skills-category">
+                    <h4>Digital Marketing</h4>
+                    <div class="skills-list">Google Ads (0.9% CTR, $0.23 CPC), Analytics, SEM optimization</div>
+                </div>
+                <div class="skills-category">
+                    <h4>Content Creation</h4>
+                    <div class="skills-list">OBS Studio, YouTube Studio, Strategic domain acquisition</div>
+                </div>
+                <div class="skills-category">
+                    <h4>Development Stack</h4>
+                    <div class="skills-list">PHP, MySQL, JavaScript, Stripe API, PWA, CSRF protection</div>
+                </div>
+                <div class="skills-category">
+                    <h4>Cloud Infrastructure</h4>
+                    <div class="skills-list">Azure (AZ-500, AZ-104, DP-900), Active Directory, ServiceNow</div>
+                </div>
+                <div class="skills-category">
+                    <h4>Enterprise Tools</h4>
+                    <div class="skills-list">SailPoint, Intune, Confluence, Jira, Okta</div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h3>Work Experience</h3>
+            <div class="work-item">
+                <div class="work-left">
+                    <span class="work-name">Solo Developer & Entrepreneur</span>
+                    <span class="badge">2024-Present</span>
+                </div>
+                <span class="work-link">AI-Enhanced Development & Prompt Engineering</span>
+            </div>
+            <div class="work-item">
+                <div class="work-left">
+                    <span class="work-name">Regions Bank</span>
+                    <span class="badge">2024-Present</span>
+                </div>
+                <span class="work-link">Cloud Infrastructure Support</span>
+            </div>
+            <div class="work-item">
+                <div class="work-left">
+                    <span class="work-name">Mountainland College</span>
+                    <span class="badge">2016-2022</span>
+                </div>
+                <span class="work-link">Computer Technician</span>
+            </div>
+            <div class="work-item">
+                <div class="work-left">
+                    <span class="work-name">Delta Airlines</span>
+                    <span class="badge">2010-2016</span>
+                </div>
+                <span class="work-link">Customer Support Supervisor</span>
+            </div>
+        </section>
+        
+        <section>
+            <h3>Vibe-Coded Projects</h3>
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="project-title-row">
+                        <span class="project-name">miopinion.com/threads</span>
+                        <span class="badge">Jan 2025</span>
+                    </div>
+                    <span class="project-description">Complete Threads clone deployed in 24 hours - 5-table database schema with admin dashboard</span>
+                </div>
+                <a href="https://miopinion.com/Miopinion_Threads/" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg class="project-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="project-title-row">
+                        <span class="project-name">chiloso.com</span>
+                        <span class="badge">current</span>
+                    </div>
+                    <span class="project-description">Dating app with emoji challenges & Stripe payments - migrated from miopinion.com</span>
+                </div>
+                <a href="https://chiloso.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg class="project-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="project-title-row">
+                        <span class="project-name">apt27.com</span>
+                        <span class="badge">production</span>
+                    </div>
+                    <span class="project-description">Anonymous messaging with BakverZ reverse text & 24hr expiry</span>
+                </div>
+                <a href="https://apt27.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg class="project-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.64645 11.3536C3-45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="project-title-row">
+                        <span class="project-name">miopinion.com</span>
+                        <span class="badge">maintained</span>
+                    </div>
+                    <span class="project-description">Spanish social platform with meme generator & news bias analysis</span>
+                </div>
+                <a href="https://miopinion.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg class="project-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="project-title-row">
+                        <span class="project-name">shhh.website</span>
+                        <span class="badge">production</span>
+                    </div>
+                    <span class="project-description">Spanish anonymous messaging with anti-scraping protection</span>
+                </div>
+                <a href="https://shhh.website" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg class="project-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="project-title-row">
+                        <span class="project-name">oracion.app</span>
+                        <span class="badge">production</span>
+                    </div>
+                    <span class="project-description">AI-generated prayer app with tabbed interface & Material Design</span>
+                </div>
+                <a href="https://oracion.app" target="_blank" rel="noopener noreferrer" class="project-link">
+                    <svg class="project-arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h3>Key Achievements</h3>
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="project-title-row">
+                        <span class="project-name">User Acquisition</span>
+                        <span class="badge">proven</span>
+                    </div>
+                    <span class="project-description">146+ users acquired with 4.67-star ratings through targeted Google Ads</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="project-title-row">
+                        <span class="project-name">Database Migration</span>
+                        <span class="badge">complex</span>
+                    </div>
+                    <span class="project-description">Successfully migrated chiloso.com tables with zero data loss</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-info">
+                    <div class="project-title-row">
+                        <span class="project-name">Revenue Systems</span>
+                        <span class="badge">live</span>
+                    </div>
+                    <span class="project-description">Stripe integration with multiple revenue streams across platforms</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Certifications</h3>
+            <div class="work-item">
+                <div class="work-left">
+                    <span class="work-name">Microsoft Azure AZ-500 Security Engineer</span>
+                    <span class="badge">2024</span>
+                </div>
+            </div>
+            <div class="work-item">
+                <div class="work-left">
+                    <span class="work-name">Microsoft Azure AZ-104</span>
+                    <span class="badge">2024</span>
+                </div>
+            </div>
+            <div class="work-item">
+                <div class="work-left">
+                    <span class="work-name">Microsoft Azure DP-900</span>
+                    <span class="badge">2023</span>
+                </div>
+            </div>
+            <div class="work-item">
+                <div class="work-left">
+                    <span class="work-name">Microsoft Active Directory</span>
+                    <span class="badge">2016</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="connect">
+            <h3>Connect</h3>
+            <p>If you're looking to connect for a vibe-coding project or AI-enhanced development, feel free to reach out via <a href="mailto:801opinion@gmail.com?subject=Hi%2C%20Johnny!">Email</a>. You can also find my work on <a href="https://github.com/smartlatino">GitHub</a> and check my professional background on <a href="https://linkedin.com/in/johnny-garciano-33275a208">LinkedIn</a>.</p>
+        </section>
+    </div>
+</body>
+</html>
